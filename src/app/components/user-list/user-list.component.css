@@ -1,0 +1,123 @@
+.user-list-container {
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+thead {
+    background-color: #f9f9f9;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #f44e3b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+    transform: scale(1.2);
+}
+
+.icon-button {
+    border: 1px solid;
+    padding: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.delete mat-icon {
+    color: #dc3545;
+}
+
+.small-icon {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+}
+
+.buttonPagination {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #f1f1f1 !important;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.input-field {
+    width: 150%;
+    padding: 8px 20px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.selected {
+    background-color: #f1f1f1;
+    /* or any other color to indicate selection */
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+#t1,
+#t3 {
+    float: left;
+    clear: left;
+}
+
+#t2,
+#t4 {
+    float: right;
+    clear: right;
+}
+
+.deleteAll{
+    transform: scale(1.15);
+    background-color: red;
+}
+
+.delete-icon{
+    color: white !important;
+}
+
+/* Add further styles to match the design, like colors, paddings, etc. */

@@ -1,0 +1,65 @@
+<div class="user-list-container">
+    <div id="t1">
+        <input type="text" class="input-field search-icon" placeholder="Enter Value..."
+         [(ngModel)]="enteredValue" (input)="applyFilter()">
+    </div>  
+    <div id="t2">
+        <span class="icon-button delete deleteAll">
+            <mat-icon class="small-icon delete-icon"(click) ="deleteAll()">delete</mat-icon>
+        </span>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th><input type="checkbox" (click)="HandleAllSelected(userPage)" [(ngModel)]="selectAllPerPage[userPage]"/></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of filteredUsers | paginate: {id:'Pagination', itemsPerPage: itemsPerPage, currentPage: userPage  }"
+            [class.selected]="user.isSelected">
+
+            <td><input type="checkbox" [class.selected]="user.isSelected" (click)="toggleSelection(user)"[(ngModel)]="user.isSelected"/></td>
+            <td>
+                <div *ngIf="!user.isEditable">{{ user.name }}</div>
+                <input *ngIf="user.isEditable" style="width: 50%;"  [(ngModel)]="user.name">
+            </td>
+            <td>
+                <div *ngIf="!user.isEditable">{{ user.email }}</div>
+                <input *ngIf="user.isEditable" style="width: 50%;"  [(ngModel)]="user.email">
+            </td>
+            <td>
+                <div *ngIf="!user.isEditable">{{ user.role }}</div>
+                <input *ngIf="user.isEditable" style="width: 20%;"  [(ngModel)]="user.role">
+            </td>
+            <td>
+                <span class="icon-button edit" *ngIf="!user.isEditable">
+                    <mat-icon class="small-icon" (click)="enableEdit(user)">edit</mat-icon>
+                </span>
+                <span class="icon-button edit" *ngIf="user.isEditable">
+                    <mat-icon class="small-icon" (click)="save(user)">save</mat-icon>
+                </span>
+                <span class="icon-button edit" *ngIf="user.isEditable">
+                    <mat-icon class="small-icon" (click)="cancelEdit(user)">cancel</mat-icon>
+                </span>
+                <span class="icon-button delete" *ngIf="!user.isEditable">
+                    <mat-icon class="small-icon" (click)="deleteUser(user)">delete</mat-icon>
+                </span>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination" style="justify-content: end;">
+        <span class="page-indicator">Page {{ userPage }} of {{ totalPages }}</span>
+        <pagination-controls id="Pagination" previousLabel="<" nextLabel=">" 
+        (pageChange)="handlePageChange($event)">
+        </pagination-controls>
+    </div>
+  </div>
+  
